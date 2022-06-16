@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+
+#top { grid-area: tp; }
+#bottom { grid-area: bm; }
+
+body {
+    font-family: 'Roboto Mono', monospace;
+
+    background-color: rgb(22, 22, 44);
+
+    height: 99.7%;
+
+    margin: 0;
+
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50%;
+    grid-template-areas:
+        "tp"
+        "bm";
+}
+
+#membank {
+    display: grid;
+    grid-template-columns: repeat(8, 12.5%);
+
+    grid-area: mb;
+
+    overflow-y: auto;
+}
+
+.membox {
+    color: white;
+    background-color: black;
+
+    margin: 1px;
+    border: 2px solid rgb(44, 44, 77);
+    padding-top: auto;
+
+    text-align: center;
+    font-size: 3vw;
+}
+
+#m0 { color: black; background-color: white; border-color: black;}
+
+#delay { grid-area: dl; }
+#delayA {
+    grid-area: da;
+
+    color: white;
+
+    font-size: 2.1vw;
+    text-align: center;
+}
+#delaybox {
+    grid-area: db;
+
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-areas: 
+        "dl dl dl dl da";
+}
+
+#autorun { grid-area: ar; }
+#start { grid-area: st; }
+#pause { grid-area: ps; }
+#stop { grid-area: sp; }
+#warning {
+    grid-area: wn;
+
+    margin: 1px;
+    border: 2px solid rgb(44, 44, 77);
+
+    color: white;
+
+    font-size: 1.5vw;
+    text-align: center;
+}
+
+#top {
+    border: 2px solid rgb(44, 44, 77);
+    border-bottom: none;
+}
+
+#bottom {
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+}
+
+#left {
+    border: 2px solid rgb(44, 44, 77);
+}
+
+#right {
+    background-color:rgb(22, 22, 44);
+    border: 2px solid rgb(44, 44, 77);
+
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(5, 20%);
+    grid-template-areas:
+        "mb mb mb mb mb"
+        "mb mb mb mb mb"
+        "db db db db db"
+        ". . . . ar"
+        "st ps sp wn wn";
+}
+
+textarea {
+    width: 100%;
+    height: 100%;
+    resize: none;
+
+    color: white;
+    background-color: rgb(22, 22, 44);
+
+    border: none;
+    outline: none;
+
+    font-size: 2vw;
+}
+
+button {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.7vw;
+
+    color: white;
+    background-color: black;
+
+    margin: 1px;
+    border: 2px solid rgb(44, 44, 77);
+}
