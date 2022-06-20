@@ -112,7 +112,10 @@ function movePointer(i) {
 
     var array = document.getElementsByClassName('membox');
     if (pointer >= array.length) document.getElementById('membank').innerHTML += '<div class="membox" id="m' + pointer + '">0</div>';
-    if (pointer < 0) pointer = array.length - 1;
+    if (pointer < 0) {
+        warning.textContent = "< at position " + (position + 1) + ". Memory pointer points below bank 0.";
+        return running = false;
+    }
 
     document.getElementById('m' + pointer).style.backgroundColor = "white";
     document.getElementById('m' + pointer).style.color = "black";
@@ -139,14 +142,20 @@ input.addEventListener('keydown', (e) => {
     const pos = input.selectionStart;
 
     if (validKeys.includes(e.key)) {
-        if (!( [ undefined, " ", "\n", e.key ].includes(code[pos - 1]))) {
-            input.value = code.slice(0, pos + 1) + " " + code.slice(pos + 1);
+        e.preventDefault();
+
+        if ([ undefined, " ", "\n", e.key].includes(code[pos - 1])) {
+            input.value = code.slice(0, pos) + e.key + code.slice(pos);
             input.selectionStart = input.selectionEnd = pos + 1;
+        }
+        else {
+            input.value = code.slice(0, pos) + " " + e.key + code.slice(pos);
+            input.selectionStart = input.selectionEnd = pos + 2;
         }
 
         if (e.key === "[") {
-            input.value = code.slice(0, pos) + "]" + code.slice(pos);
-            input.selectionStart = input.selectionEnd = pos;
+            input.value = code.slice(0, pos) + "[]" + code.slice(pos);
+            input.selectionStart = input.selectionEnd = pos + 1;
         }
     }
 

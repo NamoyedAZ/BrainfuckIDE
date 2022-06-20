@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>The World's Best BrainF*CK IDE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="../../blukatknight.png">
+  </head>
+  <body onload="changeDelay();">
+    <div class="whole">
+
+      <div id="top">
+        <textarea id="input" spellcheck="false" placeholder="Input code here"></textarea>
+      </div>
+
+      <div id="bottom">
+
+        <div id="left">
+          <textarea id="output" placeholder="Output goes here" disabled="true"></textarea>
+        </div>
+
+        <div id="right">
+          <div id="membank">
+            <p class="membox" id="m0">0</p>
+            <p class="membox" id="m1">0</p>
+            <p class="membox" id="m2">0</p>
+            <p class="membox" id="m3">0</p>
+            <p class="membox" id="m4">0</p>
+            <p class="membox" id="m5">0</p>
+            <p class="membox" id="m6">0</p>
+            <p class="membox" id="m7">0</p>
+          </div>
+
+          <div id="delayBox">
+            <input type="range" id="delay" oninput="changeDelay()"></input>
+            <div id="delayA">0</div>
+          </div>
+
+          <button id="autorun">Autorun</button>
+
+          <button id="start">Start</button>
+          <button id="pause">Pause</button>
+          <button onclick="running = false;" id="stop">Stop</button>
+          <div id="warning">No warnings</div>
+        </div>
+
+      </div>
+
+    </div>
+  </body>
+  <script type="text/javascript" src="brainfuck.js"></script>
+</html>
